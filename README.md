@@ -15,14 +15,6 @@ rbenv和[Bundler](http://bundler.io/) 双剑合壁，让你不再苦恼ruby版�
   dependency lives in one place—your app—so upgrades and rollbacks are
   atomic, even when you switch versions.
 
-**One thing well.** rbenv is concerned solely with switching Ruby
-  versions. It's simple and predictable. A rich plugin ecosystem lets
-  you tailor it to suit your needs. Compile your own Ruby versions, or
-  use the [ruby-build][]
-  plugin to automate the process. Specify per-application environment
-  variables with [rbenv-vars](https://github.com/sstephenson/rbenv-vars).
-  See more [plugins on the
-  wiki](https://github.com/sstephenson/rbenv/wiki/Plugins).
 **做好一件事** rbenv完全专注于切换ruby版本，简单可控。它有一个丰富的插件
   生态环境满足你一切需求。编译你自己的ruby版本或者使用[ruby-build][]插件
   自动构建。Specify per-application environment variables      
