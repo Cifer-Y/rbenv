@@ -29,15 +29,15 @@ rbenv和[Bundler](http://bundler.io/) 双剑合壁，让你不再苦恼ruby版�
   * [理解 PATH](#understanding-path)
   * [理解 Shims](#understanding-shims)
   * [选择ruby版本](#choosing-the-ruby-version)
-  * [Locating the Ruby Installation](#locating-the-ruby-installation)
+  * [定位ruby安装文件](#locating-the-ruby-installation)
 * [安装](#installation)
   * [基本Github安装](#basic-github-checkout)
-    * [Upgrading](#upgrading)
-  * [Homebrew on Mac OS X](#homebrew-on-mac-os-x)
-  * [How rbenv hooks into your shell](#how-rbenv-hooks-into-your-shell)
-  * [Installing Ruby Versions](#installing-ruby-versions)
-  * [Uninstalling Ruby Versions](#uninstalling-ruby-versions)
-* [Command Reference](#command-reference)
+    * [升级](#upgrading)
+  * [Mac OS X Homebrew 安装](#homebrew-on-mac-os-x)
+  * [rbenv怎样与你的shell勾搭](#how-rbenv-hooks-into-your-shell)
+  * [安装](#installing-ruby-versions)
+  * [卸载](#uninstalling-ruby-versions)
+* [命令参考](#command-reference)
   * [rbenv local](#rbenv-local)
   * [rbenv global](#rbenv-global)
   * [rbenv shell](#rbenv-shell)
@@ -46,10 +46,10 @@ rbenv和[Bundler](http://bundler.io/) 双剑合壁，让你不再苦恼ruby版�
   * [rbenv rehash](#rbenv-rehash)
   * [rbenv which](#rbenv-which)
   * [rbenv whence](#rbenv-whence)
-* [Environment variables](#environment-variables)
-* [Development](#development)
+* [环境变量](#environment-variables)
+* [开发](#development)
 
-## How It Works
+## 原理
 
 At a high level, rbenv intercepts Ruby commands using shim
 executables injected into your `PATH`, determines which Ruby version
