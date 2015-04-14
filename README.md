@@ -1,17 +1,13 @@
-# Groom your app’s Ruby environment with rbenv.
+# 用rbenv打理你的ruby环境
 
-Use rbenv to pick a Ruby version for your application and guarantee
-that your development environment matches production. Put rbenv to work
-with [Bundler](http://bundler.io/) for painless Ruby upgrades and
-bulletproof deployments.
+使用rbenv为你的应用选择一个ruby版本并保证开发环境和生产环境的一致。
+rbenv和[Bundler](http://bundler.io/) 双剑合壁，让你不再苦恼ruby版本的升级和应用的部署。
 
-**Powerful in development.** Specify your app's Ruby version once,
-  in a single file. Keep all your teammates on the same page. No
-  headaches running apps on different versions of Ruby. Just Works™
-  from the command line and with app servers like [Pow](http://pow.cx).
-  Override the Ruby version anytime: just set an environment variable.
+**强势的开发表现** 只用在一个文件中设置一次ruby版本，保证不坑队友。
+  应用太多？ruby版本太多？不用担心，你可以随时通过命令行和应用服务器比如 [Pow](http://pow.cx)
+  重设ruby版本: 仅仅修改一个环境变量就可以了。
 
-**Rock-solid in production.** Your application's executables are its
+**稳定的生产环境表现** Your application's executables are its
   interface with ops. With rbenv and [Bundler
   binstubs](https://github.com/sstephenson/rbenv/wiki/Understanding-binstubs)
   you'll never again need to `cd` in a cron job or Chef recipe to
@@ -27,19 +23,23 @@ bulletproof deployments.
   variables with [rbenv-vars](https://github.com/sstephenson/rbenv-vars).
   See more [plugins on the
   wiki](https://github.com/sstephenson/rbenv/wiki/Plugins).
+**做好一件事** rbenv完全专注于切换ruby版本，简单可控。它有一个丰富的插件
+  生态环境满足你一切需求。编译你自己的ruby版本或者使用[ruby-build][]插件
+  自动构建。Specify per-application environment variables      
+  with [rbenv-vars](https://github.com/sstephenson/rbenv-vars).
+  查看[更多插件](https://github.com/sstephenson/rbenv/wiki/Plugins).
 
-[**Why choose rbenv over
-RVM?**](https://github.com/sstephenson/rbenv/wiki/Why-rbenv%3F)
+[**为什么选择rbenv而不是RVM?**](https://github.com/sstephenson/rbenv/wiki/Why-rbenv%3F)
 
-## Table of Contents
+## 目录
 
-* [How It Works](#how-it-works)
-  * [Understanding PATH](#understanding-path)
-  * [Understanding Shims](#understanding-shims)
-  * [Choosing the Ruby Version](#choosing-the-ruby-version)
+* [原理](#how-it-works)
+  * [理解 PATH](#understanding-path)
+  * [理解 Shims](#understanding-shims)
+  * [选择ruby版本](#choosing-the-ruby-version)
   * [Locating the Ruby Installation](#locating-the-ruby-installation)
-* [Installation](#installation)
-  * [Basic GitHub Checkout](#basic-github-checkout)
+* [安装](#installation)
+  * [基本Github安装](#basic-github-checkout)
     * [Upgrading](#upgrading)
   * [Homebrew on Mac OS X](#homebrew-on-mac-os-x)
   * [How rbenv hooks into your shell](#how-rbenv-hooks-into-your-shell)
