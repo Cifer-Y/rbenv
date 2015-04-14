@@ -25,7 +25,7 @@ rbenv和[Bundler](http://bundler.io/) 双剑合壁，让你不再苦恼ruby版�
 
 ## 目录
 
-* [原理](#how-it-works)
+* [原理](#原理)
   * [理解 PATH](#understanding-path)
   * [理解 Shims](#understanding-shims)
   * [选择ruby版本](#choosing-the-ruby-version)
