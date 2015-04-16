@@ -26,18 +26,18 @@ rbenv和[Bundler](http://bundler.io/) 双剑合壁，让你不再苦恼ruby版�
 ## 目录
 
 * [原理](#原理)
-  * [理解 PATH](#understanding-path)
-  * [理解 Shims](#understanding-shims)
-  * [选择ruby版本](#choosing-the-ruby-version)
-  * [定位ruby安装文件](#locating-the-ruby-installation)
-* [安装](#installation)
-  * [基本Github安装](#basic-github-checkout)
+  * [理解PATH](#理解PATH)
+  * [理解Shims](#understanding-shims)
+  * [选择ruby版本](#理解Shims)
+  * [定位ruby安装文件](#定位ruby安装文件)
+* [安装](#安装)
+  * [基本Github安装](#基本Github安装)
     * [升级](#upgrading)
-  * [Mac OS X Homebrew 安装](#homebrew-on-mac-os-x)
-  * [rbenv怎样与你的shell勾搭](#how-rbenv-hooks-into-your-shell)
-  * [安装](#installing-ruby-versions)
-  * [卸载](#uninstalling-ruby-versions)
-* [命令参考](#command-reference)
+  * [Homebrew安装](#Homebrew安装)
+  * [rbenv怎样与你的shell勾搭](#rbenv怎样与你的shell勾搭)
+  * [安装](#安装)
+  * [卸载](#卸载)
+* [命令参考](#命令参考)
   * [rbenv local](#rbenv-local)
   * [rbenv global](#rbenv-global)
   * [rbenv shell](#rbenv-shell)
@@ -46,48 +46,41 @@ rbenv和[Bundler](http://bundler.io/) 双剑合壁，让你不再苦恼ruby版�
   * [rbenv rehash](#rbenv-rehash)
   * [rbenv which](#rbenv-which)
   * [rbenv whence](#rbenv-whence)
-* [环境变量](#environment-variables)
-* [开发](#development)
+* [环境变量](#环境变量)
+* [开发](#开发)
 
 ## 原理
 
-At a high level, rbenv intercepts Ruby commands using shim
-executables injected into your `PATH`, determines which Ruby version
-has been specified by your application, and passes your commands along
-to the correct Ruby installation.
+从宏观来看，rbenv通过将shim注入你的`PATH`来进行对ruby命令的拦截，根据
+你的应用设置来决定ruby版本，并且把你的命令传递给正确版本的ruby。
 
-### Understanding PATH
+### 理解PATH
 
-When you run a command like `ruby` or `rake`, your operating system
-searches through a list of directories to find an executable file with
-that name. This list of directories lives in an environment variable
-called `PATH`, with each directory in the list separated by a colon:
+当你敲一个命令的时候，比如`ruby`, ``rake`,你的操作系统会在一些目录里
+去找叫这些名字的可执行文件.这些目录保存在一个名叫`PATH`的环境变量里,
+不同目录之间用冒号分割:
 
     /usr/local/bin:/usr/bin:/bin
 
-Directories in `PATH` are searched from left to right, so a matching
-executable in a directory at the beginning of the list takes
-precedence over another one at the end. In this example, the
-`/usr/local/bin` directory will be searched first, then `/usr/bin`,
-then `/bin`.
+`PATH`中目录的搜索顺序是从左到右，所以排位靠前的目录中的命令会先于
+排位靠后的目录中的命令执行。就上面的例子来说，搜索一个命令的顺序是
+先`/usr/local/bin`再`/usr/bin`，最后 `/bin`。
 
-### Understanding Shims
+### 理解Shims
 
-rbenv works by inserting a directory of _shims_ at the front of your
-`PATH`:
+rbenv通过把_shims_插入到你`PATH`的最前面来进行工作:
 
     ~/.rbenv/shims:/usr/local/bin:/usr/bin:/bin
 
-Through a process called _rehashing_, rbenv maintains shims in that
-directory to match every Ruby command across every installed version
-of Ruby—`irb`, `gem`, `rake`, `rails`, `ruby`, and so on.
+通过一个叫做_rehashing_的过程，rbenv把shims维持在这个文件夹里去匹配
+所有已安装的ruby版本的所有命令-`irb`, `gem`, `rake`, `rails`, `ruby`, 诸如此类。
 
-Shims are lightweight executables that simply pass your command along
-to rbenv. So with rbenv installed, when you run, say, `rake`, your
-operating system will do the following:
+Shims是轻量级的可执行文件，它仅仅是把你的命令传递给rbenv。所以，安装了rbenv之后，
+当你跑一个命令，比如`rake`, 你的操作系统会做以下事情: 
 
-* Search your `PATH` for an executable file named `rake`
-* Find the rbenv shim named `rake` at the beginning of your `PATH`
+* 搜索你的`PATH`去找一个叫做`rake`的可执行文件
+* 在你的`PATH`最开始的地方找到一个叫做`rake`的rbenv shim
+* 
 * Run the shim named `rake`, which in turn passes the command along to
   rbenv
 
